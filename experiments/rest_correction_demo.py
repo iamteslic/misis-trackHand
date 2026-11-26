@@ -60,11 +60,14 @@ def main():
     _, v_corr, p_corr = integrate(acc_corr, dt, 0.0)
     drift_after = abs(p_corr[-1] - p_true[-1])
 
-    print(f"Истинное смещение за участок:      {p_true[-1]: .3f} м")
-    print(f"Оценка постоянной ошибки:          {correction: .4f} м/с^2 (истина {bias: .4f})")
-    print(f"Скорость в конце без коррекции:    {v[-1]: .4f} м/с")
-    print(f"Ошибка положения без коррекции:    {drift_before: .4f} м")
-    print(f"Ошибка положения после коррекции:  {drift_after: .4f} м")
+    def num(x, nd=4):
+        return f"{x:.{nd}f}".replace(".", ",")
+
+    print(f"Истинное смещение за участок:      {num(p_true[-1], 3)} м")
+    print(f"Оценка постоянной ошибки:          {num(correction)} м/с^2 (истина {num(bias)})")
+    print(f"Скорость в конце без коррекции:    {num(v[-1])} м/с")
+    print(f"Ошибка положения без коррекции:    {num(drift_before)} м")
+    print(f"Ошибка положения после коррекции:  {num(drift_after)} м")
 
 
 if __name__ == "__main__":

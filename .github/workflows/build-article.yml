@@ -27,5 +27,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: article-pdf
-          path: pz3/article.pdf
+          path: "**/article.pdf"
           if-no-files-found: error

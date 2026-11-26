@@ -1,0 +1,31 @@
+name: build-article
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build PDF (XeLaTeX)
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: article.tex
+          working_directory: pz3
+          latexmk_use_xelatex: true
+          args: -interaction=nonstopmode -halt-on-error
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: article-pdf
+          path: pz3/article.pdf
+          if-no-files-found: error

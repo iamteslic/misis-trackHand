@@ -84,7 +84,7 @@
 
 \subsection{Дрейф и обнуление скорости}
 
-В работе~\cite{neto} для операции «взять предмет и поставить его» интегрирование выполнялось только во время движения, а в остановках скорость обнулялась. Ошибка в горизонтальной плоскости составила около 1~см. Этот приём известен как ZUPT (zero velocity update). В~\cite{niu} малые перемещения восстанавливаются по одному МЭМС-акселерометру с компенсацией медленного тренда.
+В работе~\cite{neto} для операции «взять предмет и поставить его» интегрирование выполнялось только во время движения, а в остановках скорость обнулялась. Ошибка в горизонтальной плоскости составила около 1~см. Этот приём известен как ZUPT (zero velocity update). В~\cite{niu} малые перемещения восстанавливаются по одному МЭМС-акселерометру с компенсацией медленного тренда. В работе~\cite{zhang2018} траектория мобильного устройства восстанавливается по данным МЭМС IMU: шум подавляется фильтрацией, а смещение оценивается по событиям движения. Это близкая постановка, но без коррекции на участках «покой--покой».
 
 ZUPT ограничивает накопление ошибки, но не убирает её причину. Если между двумя остановками интеграл ускорения не равен нулю, траектория успевает уйти в сторону, а после остановки остаётся смещённой. Именно этот остаток исследуется в настоящей работе.
 
@@ -328,6 +328,8 @@ ZUPT ограничивает накопление ошибки, но не уб�
 \bibitem{neto} P. Neto, J.~N. Pires, and A.~P. Moreira, ``3-D position estimation from inertial sensing: minimizing the error from the process of double integration of accelerations,'' in \textit{Proc. IECON 2013 --- 39th Annual Conf. IEEE Industrial Electronics Society}, 2013, pp.~4026--4031, doi: 10.1109/IECON.2013.6699780.
 
 \bibitem{niu} W. Niu, L. Fang, Z. Qi, and D. Guo, ``Small displacement measuring system based on MEMS accelerometer,'' \textit{Mathematical Problems in Engineering}, vol.~2019, art.~3470604, 2019, doi: 10.1155/2019/3470604.
+
+\bibitem{zhang2018} J. Zhang, J. Feng, and B. Zhou, ``Sensor-fusion-based trajectory reconstruction for mobile devices,'' in \textit{Proc. 13th International Joint Conference on Computer Vision, Imaging and Computer Graphics Theory and Applications (VISIGRAPP 2018) --- Volume 1: GRAPP}, 2018, pp.~48--58, doi: 10.5220/0006532900480058.
 
 \bibitem{mahony} R. Mahony, T. Hamel, and J.-M. Pflimlin, ``Nonlinear complementary filters on the special orthogonal group,'' \textit{IEEE Transactions on Automatic Control}, vol.~53, no.~5, pp.~1203--1218, 2008, doi: 10.1109/TAC.2008.923738.
 
